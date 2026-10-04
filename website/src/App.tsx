@@ -140,13 +140,13 @@ export default function App() {
     }
   };
 
-  const handleStartTour = () => {
+  const handleStartTour = (from = 0) => {
     if (tourRef.current) {
       tourRef.current.applyOptions?.({
         ...config,
         theme: theme
       });
-      tourRef.current.start();
+      tourRef.current.start({ from });
     }
   };
 

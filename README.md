@@ -1,131 +1,131 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/cttricks/spotlight.js/master/docs/assets/img/spotlight-js-banner.png" alt="Spotlight.js" />
-  <h1>Spotlight JS</h1>
-  <p>A modern, zero-dependency tour guide & onboarding engine for any web project.</p>
-  <p>
-    <img src="https://img.shields.io/npm/v/spotlight-js" alt="npm version" />
-    <img src="https://img.shields.io/github/license/cttricks/spotlight.js" alt="license" />
-  </p>
-</div>
+![Spotlight.JS OgBanner](https://repository-images.githubusercontent.com/847267775/7c287ba8-4b90-4b2c-84a5-efcc0bd94351)
 
----
+# Spotlight.js
 
-**Spotlight JS** is a lightweight, zero-dependency site tour and feature onboarding engine written in TypeScript. It guides user attention across your web application with fluid SVG cutout morphing, modern glassmorphic card popovers, rich media embeds (Images, GIFs, and Videos), and seamless Light/Dark/Auto theme adaptation.
+[![npm version](https://img.shields.io/badge/Spotlight.js-v2.1.0-red?style=flat-square)](https://www.npmjs.com/package/spotlight-js)
+[![license](https://img.shields.io/badge/license-MIT-yellow.svg?style=flat-square)](./LICENSE)
+[![Playground](https://img.shields.io/badge/Live-Playground-success?style=flat-square)](https://spotlight-js.cttricks.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg?style=flat-square)](#)
 
-### ✨ Highlights
+**The zero-dependency site tour engine for modern web apps.**  
+Direct user focus with declarative HTML annotations, fluid SVG cutout morphing, and adaptive theming.
 
-- 🏷️ **Declarative Markup:** Annotate elements directly using `data-spot-name`, `data-spot-summary`, `data-spot-media`, and `data-spot-id`.
-- 🌊 **Fluid Motion & Morphing:** Smooth hardware-accelerated transitions glide the cutout between elements of any size.
-- 📐 **Smart Collision Positioning:** Auto-flips (top, bottom, left, right) with boundary clamping and dynamically tethered directional arrows.
-- 🎬 **Rich Media Support:** Embed images, animated GIFs, or autoplaying looping HTML5 videos (`.mp4`, `.webm`) directly inside steps.
-- 🌗 **Adaptive Theming:** Built-in `'light'`, `'dark'`, and `'auto'` (dynamically tracks OS system color preference).
-- 🚀 **Universal Compatibility:** Zero dependencies. Works with Next.js (App & Pages router, SSR safe), React, Vite, Vue, Astro, and plain HTML via CDN.
+[**Explore Live Playground →**](https://spotlight-js.cttricks.com) · [**Read Documentation →**](./docs) · [**Why Spotlight.js?**](https://spotlight-js.cttricks.com#why-i-made-this) · [**Report Issue →**](https://github.com/cttricks/spotlight.js/issues)
 
----
 
-## 🛠️ Installation
+## Why Spotlight.js?
+
+Traditional onboarding libraries force you to manage detached 200-line JSON config arrays paired with brittle CSS selectors (`.btn-primary > div:first-child`). The second a teammate refactors a class name, the tour silently breaks.
+
+**Spotlight.js flips this model:** your DOM elements declare their own tour steps in-place using native `data-spot-*` attributes.
+
+- **Zero External Dependencies** — Written in pure TypeScript with lightweight hardware-accelerated SVG (~25KB gzipped).
+- **100% Declarative Markup** — Annotate elements directly with `data-spot-name`, `data-spot-summary`, and `data-spot-media`.
+- **Fluid Cutout Morphing** — Smooth cubic-bezier transitions glide between target elements of any shape or size.
+- **Collision-Aware Positioning** — Auto-flips (top, bottom, left, right) with boundary clamping and dynamically tethered arrows.
+- **Rich Media Embeds** — Seamlessly renders looping MP4/WebM videos, animated GIFs, or responsive images in popovers.
+- **Adaptive Theme Engine** — Real-time `'auto'` (system sync), `'dark'`, and `'light'` color modes.
+- **Universal & SSR-Safe** — Works out-of-the-box with React, Next.js, Vue, Svelte, Astro, or via `esm.sh` in plain HTML.
+- **Production Proven** — Built and dogfooded across production dashboards at [Dotix](https://spotlight-js.cttricks.com#why-i-made-this).
+
+
+## 📦 Installation
+
+Install via your preferred package manager:
 
 ```bash
 npm install spotlight-js
-# or
-pnpm add spotlight-js
-# or
-yarn add spotlight-js
+# or: pnpm add spotlight-js | yarn add spotlight-js | bun add spotlight-js
 ```
 
-### Or via CDN (Instant / No Build)
+### Instant Drop-in via `esm.sh` (No Build Step)
 
 ```html
-<!-- Stylesheet -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spotlight-js/dist/styles/spotlight.css" />
+<!-- Include Stylesheet -->
+<link rel="stylesheet" href="https://esm.sh/spotlight-js/dist/styles/spotlight.css">
 
-<!-- Standalone IIFE Script -->
-<script src="https://cdn.jsdelivr.net/npm/spotlight-js/dist/spotlight.global.js"></script>
+<!-- Import & Start -->
+<script type="module">
+  import { spotlight } from 'https://esm.sh/spotlight-js';
+  const tour = await spotlight();
+  tour.start();
+</script>
 ```
 
----
 
-## 🚀 Quick Start
+## ⚡ 30-Second Quickstart
 
-### 1. Annotate your HTML with `data-spot-*`
+### 1. Tag your elements in HTML or JSX
 
 ```html
-<header>
-  <button 
-    data-spot-id="1"
-    data-spot-name="Instant Search"
-    data-spot-summary="Press ⌘K anytime to quickly locate pages, documents, and settings."
-    data-spot-media="/assets/search-demo.mp4"
-    data-spot-position="bottom">
-    Search (⌘K)
-  </button>
-</header>
+<button 
+  data-spot-id="search-btn"
+  data-spot-name="Instant Search" 
+  data-spot-summary="Press ⌘K anytime to search documents and shortcuts."
+  data-spot-media="/assets/search-preview.mp4"
+  data-spot-position="bottom">
+  Search (⌘K)
+</button>
 ```
 
-### 2. Initialize in JavaScript / TypeScript
+### 2. Launch in JavaScript / TypeScript
 
 ```typescript
 import { spotlight } from 'spotlight-js';
 import 'spotlight-js/styles';
 
 const tour = await spotlight({
-  theme: 'auto',              // 'light' | 'dark' | 'auto' (tracks system preference)
-  highlightColor: '#6366f1',  // Accent border and button color
-  backdropBlur: 4             // Subtle glassmorphism backdrop blur in px
+  theme: 'auto',              // 'light' | 'dark' | 'auto' (OS color sync)
+  highlightColor: '#ffffff',  // Custom stroke & accent color
+  backdropBlur: 4             // Glassmorphism backdrop blur (px)
 });
 
-// Launch the tour
 tour.start();
 ```
 
----
 
-## 🕹️ Controls & API
+## Programmatic Controls
 
 ```typescript
-tour.start();            // Starts tour from step 1
-tour.start({ from: 2 }); // Starts tour from a specific step ID or index
-tour.next();             // Advances to next step
-tour.previous();         // Goes back to previous step
-tour.goTo(3);            // Jumps to step index
-tour.end();              // Closes the tour
-tour.updateSpots();      // Re-scans DOM for dynamic elements
-tour.setTheme('dark');   // Switches theme dynamically ('light' | 'dark' | 'auto')
-tour.destroy();          // Unbinds listeners and removes DOM artifacts
-
-// Event Listeners
-tour.on('start', ({ step, total }) => { ... });
-tour.on('change', ({ step, index, total }) => { ... });
-tour.on('next', ({ step, index }) => { ... });
-tour.on('complete', () => { ... });
-tour.on('exit', ({ reason }) => { ... });
+tour.start();            // Start tour from step 1
+tour.start({ from: 2 }); // Start from specific step ID or index
+tour.next();             // Advance to next step
+tour.previous();         // Return to previous step
+tour.goTo(3);            // Jump directly to step index
+tour.end();              // Close the active tour
+tour.setTheme('dark');   // Switch theme live ('light' | 'dark' | 'auto')
+tour.destroy();          // Unbind all event listeners and remove DOM overlay
 ```
 
-### Declarative Button Triggers
-Any HTML element with `type="spotlight-button:start"` or `data-spotlight-start` will automatically launch the tour when clicked:
+> **Need multi-tour flows?** Tag elements with `data-spot-group="billing"` and launch isolated sequences using `tour.start({ group: 'billing' })`.
 
-```html
-<button data-spotlight-start>Take a Tour</button>
-```
+## Complete Documentation
+
+Detailed specifications, API references, and framework recipes are organized in the [`docs/`](./docs) directory:
+
+| Guide | Description |
+| :--- | :--- |
+| [**Data Attributes Reference**](./docs/data-attributes-spec.md) | Complete specification for all `data-spot-*` attributes, media types, and grouping. |
+| [**Framework & CDN Integration**](./docs/framework-cdn-guide.md) | Setup recipes for Next.js (App & Pages router), React hooks, Vue, Astro, and CDN script tags. |
+| [**UI, Animation & Theme Design**](./docs/ui-animation-design.md) | Cutout morphing mechanics, glassmorphic popover styling, and CSS token overrides. |
+| [**Architecture & API Reference**](./docs/architecture.md) | Engine lifecycle state machine, typed event emitters, collision detection, and SSR safety. |
+
+
+## Live Playground
+
+Tweak highlight strokes, cutout radiuses, backdrop opacities, and animation timings in real-time on our official showcase:
+
+👉 [**spotlight-js.cttricks.com**](https://spotlight-js.cttricks.com#configurator)
+
+
+## Contributing & Community
+
+Contributions, issues, and feature requests are welcome!
+- See [Contribution.md](./Contribution.md) for local development setup.
+- File bug reports and proposals on [GitHub Issues](https://github.com/cttricks/spotlight.js/issues).
+
+<br>
 
 ---
-
-## 📚 Documentation
-
-Detailed specifications and integration guides are available in [`docs/`](./docs):
-- 📐 [**Architecture Specification**](./docs/architecture.md) — System design, lifecycle state machine, and SSR safety.
-- 🏷️ [**Data Attributes Specification**](./docs/data-attributes-spec.md) — Reference for all `data-spot-*` attributes.
-- 🎨 [**UI, Animation & Theme Design**](./docs/ui-animation-design.md) — Morphing cutout mechanics and CSS tokens.
-- 🚀 [**Framework & CDN Integration Guide**](./docs/framework-cdn-guide.md) — Recipes for Next.js, React, Vue, and CDN.
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Please see [Contribution.md](./Contribution.md) for development setup and guidelines.
-
----
-
-## 📄 License
 
 MIT © [Tanish Raj](https://github.com/cttricks)

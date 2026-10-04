@@ -12,6 +12,7 @@
     --text-muted: #666666;
     --code-bg: #f5f5f5;
     --grid-line: rgba(0, 0, 0, 0.04);
+    --grid-dot: rgba(0, 0, 0, 0.08);
   }
 
   html.dark {
@@ -23,6 +24,7 @@
     --text-muted: #888888;
     --code-bg: #0d0d0d;
     --grid-line: rgba(255, 255, 255, 0.05);
+    --grid-dot: rgba(255, 255, 255, 0.12);
   }
 
   html {
@@ -61,12 +63,10 @@ html {
   }
 }
 
-/* Vercel subtle grid lines */
-.bg-grid-subtle {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+/* Vercel subtle dot pattern */
+.bg-dots-subtle {
+  background-size: 24px 24px;
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
 }
 
 /* Charcoal cards & panels */

@@ -16,7 +16,7 @@ export interface TourConfig {
 interface ConfiguratorProps {
   config: TourConfig;
   onChange: (newConfig: TourConfig) => void;
-  onTest: () => void;
+  onTest: (from?: number) => void;
 }
 
 export const Configurator: React.FC<ConfiguratorProps> = ({ config, onChange, onTest }) => {
@@ -223,7 +223,7 @@ export const Configurator: React.FC<ConfiguratorProps> = ({ config, onChange, on
             <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
               <span className="text-[11px] text-neutral-500">Settings apply live to the active tour instance.</span>
               <button
-                onClick={onTest}
+                onClick={() => onTest(4)}
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md bg-black text-white dark:bg-white dark:text-black hover:opacity-90 font-medium text-xs transition-all shadow-sm active:scale-95">
                 <Play className="w-3 h-3 fill-current" />
                 <span>Test Live Tour</span>

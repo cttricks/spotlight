@@ -137,7 +137,7 @@ onUnmounted(() => {
   <meta charset="UTF-8">
   <title>My Web App</title>
   <!-- 1. Stylesheet -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spotlight-js/dist/styles/spotlight.css">
+  <link rel="stylesheet" href="https://esm.sh/spotlight-js/dist/styles/spotlight.css">
 </head>
 <body>
 
@@ -146,29 +146,28 @@ onUnmounted(() => {
     <button id="start-tour-btn">Guide Me</button>
   </header>
 
-  <!-- 2. Spotlight JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/spotlight-js/dist/spotlight.global.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const tour = Spotlight.create({
-        theme: 'auto',
-        highlightColor: '#10b981'
-      });
+  <!-- 2. Spotlight JS via esm.sh -->
+  <script type="module">
+    import { spotlight } from 'https://esm.sh/spotlight-js';
 
-      document.getElementById('start-tour-btn').addEventListener('click', () => {
-        tour.start();
-      });
+    const tour = await spotlight({
+      theme: 'auto',
+      highlightColor: '#10b981'
+    });
+
+    document.getElementById('start-tour-btn').addEventListener('click', () => {
+      tour.start();
     });
   </script>
 </body>
 </html>
 ```
 
-### 3.2 Declarative Auto-Start via CDN
-Add `data-spotlight-auto` directly onto the script tag to automatically scan and launch the tour on first visit:
+### 3.2 Standalone Script via esm.sh
+You can also load the standalone IIFE bundle directly from esm.sh:
 ```html
 <script 
-  src="https://cdn.jsdelivr.net/npm/spotlight-js/dist/spotlight.global.js" 
+  src="https://esm.sh/spotlight-js/dist/spotlight.global.js" 
   data-spotlight-auto="true"
   data-spotlight-theme="dark">
 </script>

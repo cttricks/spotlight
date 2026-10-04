@@ -70,10 +70,12 @@ data-spot-position="auto"`,
       id: "ex-universal",
       icon: Globe,
       title: "Universal & Framework-Ready",
-      description: "SSR-safe and zero external dependencies. Works out of the box with Next.js, React, Vite, Vue, Astro, and CDN script tags.",
-      code: `<!-- Direct CDN Usage -->
-<script src="https://cdn.jsdelivr.net/.../spotlight.global.js"></script>`,
-      badge: "Next.js / React / CDN"
+      description: "SSR-safe and zero external dependencies. Works out of the box with Next.js, React, Vite, Vue, Astro, and esm.sh browser imports.",
+      code: `<!-- Direct esm.sh Browser Import -->
+<script type="module">
+  import { spotlight } from 'https://esm.sh/spotlight-js';
+</script>`,
+      badge: "React / Vite / esm.sh"
     }
   ];
 

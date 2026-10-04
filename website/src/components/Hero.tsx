@@ -15,7 +15,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
   };
 
   return (
-    <section className="relative pt-12 pb-20 overflow-hidden bg-grid-subtle">
+    <section className="relative p-20 overflow-hidden bg-dots-subtle">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         
         {/* Stage Spotlight Lamp Fixture */}
