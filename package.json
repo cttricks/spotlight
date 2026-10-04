@@ -47,14 +47,14 @@
     "typescript",
     "zero-dependency"
   ],
-  "author": "Tanish Raj <help.cttricks@gmail.com>",
+  "author": "Tanish Raj <hello@cttricks.com>",
   "contributors": [
-    "Tanish Raj <help.cttricks@gmail.com>"
+    "Tanish Raj <hello@cttricks.com>"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cttricks/spotlight/issues",
-    "email": "help.cttricks@gmail.com"
+    "email": "hello@cttricks.com"
   },
   "homepage": "https://spotlight.cttricks.com",
   "devDependencies": {

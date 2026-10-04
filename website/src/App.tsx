@@ -87,10 +87,10 @@ export default function App() {
       try {
         let spotlightFn: any;
 
-        // 1. Try local dev CDN server
+        // 1. Try esm.sh CDN
         try {
           const loadDynamic = new Function('url', 'return import(url)');
-          const cdnModule = await loadDynamic('http://localhost:3000/index.js');
+          const cdnModule = await loadDynamic('https://esm.sh/@cttricks/spotlight');
           spotlightFn = cdnModule.spotlight;
         } catch {
           // 2. Try window.Spotlight
