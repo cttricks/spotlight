@@ -75,6 +75,7 @@ spotlight-js/
 ├── website/              # Official documentation & showcase website (React + Tailwind)
 ├── example/              # Local interactive testbed and playground
 ├── AGENTS.md             # AI agent guidelines & architecture overview
+├── SKILL.md              # Reusable agent integration skill for consumer projects
 ├── package.json          # Package manifest, scripts, and exports
 └── tsconfig.json         # TypeScript compiler configuration
 ```

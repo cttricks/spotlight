@@ -36,6 +36,8 @@ export const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
           <span>v2.1.0 • TypeScript Native</span>
           <span className="text-neutral-300 dark:text-neutral-700">|</span>
           <span className="text-neutral-900 dark:text-neutral-200 font-medium">Zero Dependencies</span>
+          <span className="text-neutral-300 dark:text-neutral-700">|</span>
+          <span className="text-neutral-900 dark:text-neutral-200 font-medium">🤖 AI Agent Ready</span>
         </div>
 
         {/* Main Headline */}
@@ -92,7 +94,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
         </div>
 
         {/* Feature Cards Grid (Vercel Charcoal Style) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-left">
           
           <div className="charcoal-card p-4 rounded-lg">
             <div className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider mb-1">Architecture</div>
@@ -110,6 +112,12 @@ export const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
             <div className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider mb-1">Positioning</div>
             <div className="font-semibold text-neutral-900 dark:text-white text-sm">Collision Auto-Flip</div>
             <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Viewport clamping & tethered arrow</div>
+          </div>
+
+          <div className="charcoal-card p-4 rounded-lg">
+            <div className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider mb-1">AI-Assisted</div>
+            <div className="font-semibold text-neutral-900 dark:text-white text-sm">Agent Skill (SKILL.md)</div>
+            <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Ready for Claude Code, Cursor & Codex</div>
           </div>
 
           <div className="charcoal-card p-4 rounded-lg">

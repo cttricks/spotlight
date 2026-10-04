@@ -61,6 +61,14 @@ export const FAQ: React.FC = () => {
           Absolutely. While step discovery is declarative, you retain full JavaScript programmatic control: <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">tour.start()</code>, <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">tour.next()</code>, <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">tour.prev()</code>, <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">tour.goTo(id)</code>, and <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">tour.stop()</code>. You can also listen to lifecycle events like <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">onStepChange</code>, <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">onComplete</code>, and <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">onExit</code>.
         </>
       )
+    },
+    {
+      question: "Is Spotlight.js compatible with AI coding agents (Claude Code, Cursor, Codex, Antigravity)?",
+      answer: (
+        <>
+          Yes! Spotlight.js includes a dedicated <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">SKILL.md</code> packaged directly with the library. When building features with AI pair programmers, simply prompt your agent: <em>"Read node_modules/spotlight-js/SKILL.md and implement an onboarding tour for our dashboard."</em> The agent will automatically know all declarative <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">data-spot-*</code> attributes, SSR safety patterns, and lifecycle methods without hallucinating.
+        </>
+      )
     }
   ];
 
