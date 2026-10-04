@@ -63,4 +63,4 @@
   - Real-world `data-spot-*` usage with images, videos, and GIFs.
   - Live theme switcher (Light / Dark / Auto).
   - Live controls playground.
-- Update `README.md` and `How-to-use.md`.
+- Update `README.md` and documentation guides.

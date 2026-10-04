@@ -1,12 +1,11 @@
 {
   "name": "spotlight-js",
   "version": "2.1.0",
-  "description": "Spotlight JS - A smooth, modern, and zero-dependency site tour engine with declarative data-spot attributes, rich media, and adaptive themes.",
+  "description": "A smooth, modern, and zero-dependency site tour engine with declarative data-spot attributes, rich media, and adaptive themes.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "unpkg": "./dist/spotlight.min.js",
-  "jsdelivr": "./dist/spotlight.min.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -14,15 +13,16 @@
       "require": "./dist/index.cjs"
     },
     "./styles": "./dist/styles/spotlight.css",
-    "./stylesheet": "./dist/styles/spotlight.css",
-    "./styles/spotlight.css": "./dist/styles/spotlight.css"
+    "./styles/spotlight.css": "./dist/styles/spotlight.css",
+    "./package.json": "./package.json"
   },
-  "directories": {
-    "doc": "docs"
-  },
+  "sideEffects": [
+    "*.css",
+    "./dist/styles/*"
+  ],
   "scripts": {
     "build": "tsup && npm run copy:assets",
-    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
     "cdn": "serve dist -p 3000 --cors",
     "start": "serve example -p 3001",
     "site:dev": "npm --prefix website run dev",
@@ -33,8 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cttricks/spotlight.js.git",
-    "directory": "spotlight-js"
+    "url": "git+https://github.com/cttricks/spotlight.js.git"
   },
   "keywords": [
     "spotlight",
@@ -43,6 +42,8 @@
     "onboarding",
     "product-tour",
     "walkthrough",
+    "site-tour",
+    "declarative",
     "typescript",
     "zero-dependency"
   ],
@@ -55,7 +56,7 @@
     "url": "https://github.com/cttricks/spotlight.js/issues",
     "email": "help.cttricks@gmail.com"
   },
-  "homepage": "https://github.com/cttricks/spotlight.js#readme",
+  "homepage": "https://spotlight-js.cttricks.com",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
@@ -64,9 +65,7 @@
     "typescript": "^5.5.0"
   },
   "files": [
-    "dist/**/*",
-    "src/**/*.css",
-    "LICENSE",
-    "README.md"
+    "dist"
   ]
 }
+

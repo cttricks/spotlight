@@ -124,7 +124,7 @@ Contributions, issues, and feature requests are welcome!
 - See [Contribution.md](./Contribution.md) for local development setup.
 - File bug reports and proposals on [GitHub Issues](https://github.com/cttricks/spotlight.js/issues).
 
-<br>
+> Use Of AI: I have used Antigravity to improve this library. The 
 
 ---
 

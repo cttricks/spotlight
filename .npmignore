@@ -1,0 +1,42 @@
+# Development, IDE & Editor
+.vscode/
+.idea/
+.history/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Version Control & CI
+.git/
+.github/
+.gitignore
+.gitattributes
+
+# Workspace Projects, Examples & Documentation
+website/
+example/
+docs/
+.trash/
+
+# Source Code (compiled bundles & types are in dist/)
+src/
+
+# Configuration & Tooling Files
+tsconfig*.json
+tsup.config.ts
+eslint.config.*
+.eslintrc*
+AGENTS.md
+AGENT.md
+
+# Tests & Logs
+tests/
+__tests__/
+*.test.*
+*.spec.*
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
