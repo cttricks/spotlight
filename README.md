@@ -1,4 +1,4 @@
-![Spotlight.JS OgBanner](https://repository-images.githubusercontent.com/847267775/7c287ba8-4b90-4b2c-84a5-efcc0bd94351)
+![Spotlight.JS OgBanner](https://repository-images.githubusercontent.com/847267775/ad4cfde6-678a-42a6-91d4-411b2c316e86)
 
 # Spotlight
 

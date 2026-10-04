@@ -25,7 +25,7 @@ Welcome to Spotlight! As an open-source project, we value all kinds of contribut
 
 1. **Fork** the repository and create your feature branch: `git checkout -b feature/awesome-thing`.
 2. **Commit** your changes following meaningful commit messages.
-3. **Verify** your changes by running the local example in `/example`.
+3. **Verify** your changes by running the interactive testbed & showcase (`npm start` or `npm run site:dev`).
 4. **Push** to your fork and submit a **Pull Request**.
 
 ## Roadmap & Potential Improvements
@@ -45,5 +45,5 @@ If you find a bug or have a security concern, please open an Issue on GitHub wit
 
 ---
 
-Thank you for helping make Spotlight JS a mature library for everyone!
+Thank you for helping make Spotlight a mature library for everyone!
 Licensed under **MIT**.

@@ -73,7 +73,6 @@ spotlight-js/
 │   └── index.ts          # Main library entry point
 ├── dist/                 # Built distribution artifacts
 ├── website/              # Official documentation & showcase website (React + Tailwind)
-├── example/              # Local interactive testbed and playground
 ├── AGENTS.md             # AI agent guidelines & architecture overview
 ├── SKILL.md              # Reusable agent integration skill for consumer projects
 ├── package.json          # Package manifest, scripts, and exports
@@ -91,11 +90,8 @@ npm run build
 # Start local server to preview CDN distribution on http://localhost:3000
 npm run cdn
 
-# Start example testbed on http://localhost:3001
-npm start
-
-# Run showcase website development server
-npm run site:dev
+# Run showcase website development server (playground)
+npm start             # or npm run site:dev
 
 # Clean build output
 npm run clean

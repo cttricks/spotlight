@@ -59,7 +59,7 @@
   - Update `package.json` exports map.
 
 ### Phase 7: Interactive Demo & Documentation
-- Update `example/index.html` to showcase:
+- Build interactive showcase website (`website/`) to showcase:
   - Real-world `data-spot-*` usage with images, videos, and GIFs.
   - Live theme switcher (Light / Dark / Auto).
   - Live controls playground.
