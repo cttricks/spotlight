@@ -84,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
 
           {/* GitHub Repo */}
           <a
-            href="https://github.com/cttricks/spotlight.js"
+            href="https://github.com/cttricks/spotlight"
             target="_blank"
             rel="noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 hover:bg-neutral-100 dark:hover:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-xs font-medium transition-all">

@@ -48,7 +48,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, onStartTou
             FAQ
           </a>
           <a 
-            href="https://github.com/cttricks/spotlight.js#readme" 
+            href="https://github.com/cttricks/spotlight#readme" 
             target="_blank" 
             rel="noreferrer" 
             className="hover:text-black dark:hover:text-white transition-colors flex items-center gap-1"
@@ -90,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, onStartTou
 
           {/* GitHub Repo */}
           <a
-            href="https://github.com/cttricks/spotlight.js"
+            href="https://github.com/cttricks/spotlight"
             target="_blank"
             rel="noreferrer"
             className="p-1.5 sm:p-2 rounded-md border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"

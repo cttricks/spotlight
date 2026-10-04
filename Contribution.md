@@ -1,13 +1,13 @@
 # Contribution Guide
 
-Welcome to Spotlight JS! As an open-source project, we value all kinds of contributions—from bug reports and documentation updates to new features and architectural improvements.
+Welcome to Spotlight! As an open-source project, we value all kinds of contributions—from bug reports and documentation updates to new features and architectural improvements.
 
 ## Development Setup
 
 1. **Clone the Repo**
    ```bash
-   git clone https://github.com/cttricks/spotlight.js.git
-   cd spotlight.js
+   git clone https://github.com/cttricks/spotlight.git
+   cd spotlight
    ```
 
 2. **Install Dependencies**

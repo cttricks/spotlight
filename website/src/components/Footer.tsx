@@ -140,7 +140,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartTour }) => {
             <ul className="space-y-2 text-xs">
               <li>
                 <a 
-                  href="https://github.com/cttricks/spotlight.js/blob/master/SKILL.md" 
+                  href="https://github.com/cttricks/spotlight/blob/master/SKILL.md" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="inline-flex items-center gap-1.5 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors font-medium">
@@ -150,7 +150,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartTour }) => {
               </li>
               <li>
                 <a 
-                  href="https://github.com/cttricks/spotlight.js/blob/master/docs/data-attributes-spec.md" 
+                  href="https://github.com/cttricks/spotlight/blob/master/docs/data-attributes-spec.md" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
@@ -159,7 +159,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartTour }) => {
               </li>
               <li>
                 <a 
-                  href="https://github.com/cttricks/spotlight.js/blob/master/docs/framework-cdn-guide.md" 
+                  href="https://github.com/cttricks/spotlight/blob/master/docs/framework-cdn-guide.md" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
@@ -168,7 +168,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartTour }) => {
               </li>
               <li>
                 <a 
-                  href="https://github.com/cttricks/spotlight.js/blob/master/docs/ui-animation-design.md" 
+                  href="https://github.com/cttricks/spotlight/blob/master/docs/ui-animation-design.md" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
@@ -177,7 +177,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartTour }) => {
               </li>
               <li>
                 <a 
-                  href="https://github.com/cttricks/spotlight.js/blob/master/docs/architecture.md" 
+                  href="https://github.com/cttricks/spotlight/blob/master/docs/architecture.md" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
@@ -195,7 +195,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartTour }) => {
             <ul className="space-y-2 text-xs">
               <li>
                 <a 
-                  href="https://github.com/cttricks/spotlight.js" 
+                  href="https://github.com/cttricks/spotlight" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="inline-flex items-center gap-1.5 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
@@ -215,7 +215,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartTour }) => {
               </li>
               <li>
                 <a 
-                  href="https://github.com/cttricks/spotlight.js/issues" 
+                  href="https://github.com/cttricks/spotlight/issues" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
@@ -224,7 +224,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartTour }) => {
               </li>
               <li>
                 <a 
-                  href="https://github.com/cttricks/spotlight.js/blob/master/Contribution.md" 
+                  href="https://github.com/cttricks/spotlight/blob/master/Contribution.md" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">

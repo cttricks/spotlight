@@ -10,7 +10,7 @@
 **The zero-dependency site tour engine for modern web apps.**  
 Direct user focus with declarative HTML annotations, fluid SVG cutout morphing, and adaptive theming.
 
-[**Explore Live Playground →**](https://spotlight.cttricks.com) · [**Read Documentation →**](./docs) · [**Why Spotlight?**](https://spotlight.cttricks.com#why-i-made-this) · [**Report Issue →**](https://github.com/cttricks/spotlight.js/issues)
+[**Explore Live Playground →**](https://spotlight.cttricks.com) · [**Read Documentation →**](./docs) · [**Why Spotlight?**](https://spotlight.cttricks.com#why-i-made-this) · [**Report Issue →**](https://github.com/cttricks/spotlight/issues)
 
 
 ## Why Spotlight?
@@ -132,7 +132,7 @@ Tweak highlight strokes, cutout radiuses, backdrop opacities, and animation timi
 
 Contributions, issues, and feature requests are welcome!
 - See [Contribution.md](./Contribution.md) for local development setup.
-- File bug reports and proposals on [GitHub Issues](https://github.com/cttricks/spotlight.js/issues).
+- File bug reports and proposals on [GitHub Issues](https://github.com/cttricks/spotlight/issues).
 
 > **AI Disclosure** 🤖
 >

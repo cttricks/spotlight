@@ -169,7 +169,7 @@ export const CTA: React.FC = () => {
         {/* GitHub Star & Community CTA */}
         <div className="inline-flex items-center justify-center gap-3">
           <a
-            href="https://github.com/cttricks/spotlight.js"
+            href="https://github.com/cttricks/spotlight"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-neutral-900 text-white dark:bg-white dark:text-black hover:opacity-90 font-medium text-xs sm:text-sm transition-all shadow-sm">
