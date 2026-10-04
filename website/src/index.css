@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #ffffff;
+    --card-bg: #fafafa;
+    --card-border: #eaeaea;
+    --card-border-hover: #cccccc;
+    --text: #000000;
+    --text-muted: #666666;
+    --code-bg: #f5f5f5;
+    --grid-line: rgba(0, 0, 0, 0.04);
+  }
+
+  html.dark {
+    --bg: #000000;
+    --card-bg: #0a0a0a;
+    --card-border: #222222;
+    --card-border-hover: #383838;
+    --text: #ffffff;
+    --text-muted: #888888;
+    --code-bg: #0d0d0d;
+    --grid-line: rgba(255, 255, 255, 0.05);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light dark;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* Modern standard scrollbar with legacy fallback */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 120, 120, 0.3) transparent;
+}
+
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(120, 120, 120, 0.3);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 120, 120, 0.5);
+  }
+}
+
+/* Vercel subtle grid lines */
+.bg-grid-subtle {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+}
+
+/* Charcoal cards & panels */
+.charcoal-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.charcoal-card:hover {
+  border-color: var(--card-border-hover);
+}
+
+/* Spotlight Lamp & Light Beam */
+.spotlight-fixture {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spotlight-lamp {
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45));
+  user-select: none;
+  pointer-events: none;
+}

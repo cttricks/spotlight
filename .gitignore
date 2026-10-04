@@ -8,5 +8,5 @@ node_modules
 dist/*
 .trash/*
 
-# Detached website project
-website/
+# Website Pages & Components
+/website/dist
