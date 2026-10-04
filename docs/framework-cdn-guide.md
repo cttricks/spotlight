@@ -1,14 +1,14 @@
-# Spotlight.js — Framework & CDN Integration Guide
+# Spotlight — Framework & CDN Integration Guide
 
 ## 1. Installation
 
 ### Via NPM / Yarn / PNPM
 ```bash
-npm install spotlight-js
+npm install @cttricks/spotlight
 # or
-pnpm add spotlight-js
+pnpm add @cttricks/spotlight
 # or
-yarn add spotlight-js
+yarn add @cttricks/spotlight
 ```
 
 ---
@@ -23,8 +23,8 @@ Because Next.js pre-renders components on the server, you should ensure Spotligh
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { spotlight, SpotlightInstance } from 'spotlight-js';
-import 'spotlight-js/dist/styles/spotlight.css';
+import { spotlight, SpotlightInstance } from '@cttricks/spotlight';
+import '@cttricks/spotlight/styles';
 
 export default function OnboardingTour() {
   const tourRef = useRef<SpotlightInstance | null>(null);
@@ -66,8 +66,8 @@ export default function OnboardingTour() {
 
 ```tsx
 import React, { useEffect, useState } from 'react';
-import { spotlight } from 'spotlight-js';
-import 'spotlight-js/dist/styles/spotlight.css';
+import { spotlight } from '@cttricks/spotlight';
+import '@cttricks/spotlight/styles';
 
 export function App() {
   const [tour, setTour] = useState(null);
@@ -98,8 +98,8 @@ export function App() {
 ```vue
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
-import { spotlight } from 'spotlight-js';
-import 'spotlight-js/dist/styles/spotlight.css';
+import { spotlight } from '@cttricks/spotlight';
+import '@cttricks/spotlight/styles';
 
 const tour = ref(null);
 
@@ -137,7 +137,7 @@ onUnmounted(() => {
   <meta charset="UTF-8">
   <title>My Web App</title>
   <!-- 1. Stylesheet -->
-  <link rel="stylesheet" href="https://esm.sh/spotlight-js/dist/styles/spotlight.css">
+  <link rel="stylesheet" href="https://esm.sh/@cttricks/spotlight/dist/styles/spotlight.css">
 </head>
 <body>
 
@@ -148,7 +148,7 @@ onUnmounted(() => {
 
   <!-- 2. Spotlight JS via esm.sh -->
   <script type="module">
-    import { spotlight } from 'https://esm.sh/spotlight-js';
+    import { spotlight } from 'https://esm.sh/@cttricks/spotlight';
 
     const tour = await spotlight({
       theme: 'auto',
@@ -167,7 +167,7 @@ onUnmounted(() => {
 You can also load the standalone IIFE bundle directly from esm.sh:
 ```html
 <script 
-  src="https://esm.sh/spotlight-js/dist/spotlight.global.js" 
+  src="https://esm.sh/@cttricks/spotlight/dist/spotlight.global.js" 
   data-spotlight-auto="true"
   data-spotlight-theme="dark">
 </script>

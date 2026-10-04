@@ -1,23 +1,23 @@
 ![Spotlight.JS OgBanner](https://repository-images.githubusercontent.com/847267775/7c287ba8-4b90-4b2c-84a5-efcc0bd94351)
 
-# Spotlight.js
+# Spotlight
 
-[![npm version](https://img.shields.io/badge/Spotlight.js-v2.1.0-red?style=flat-square)](https://www.npmjs.com/package/spotlight-js)
+[![npm version](https://img.shields.io/badge/Spotlight-v1.0.1-red?style=flat-square)](https://www.npmjs.com/package/@cttricks/spotlight)
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg?style=flat-square)](./LICENSE)
-[![Playground](https://img.shields.io/badge/Live-Playground-success?style=flat-square)](https://spotlight-js.cttricks.com)
+[![Playground](https://img.shields.io/badge/Live-Playground-success?style=flat-square)](https://spotlight.cttricks.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg?style=flat-square)](#)
 
 **The zero-dependency site tour engine for modern web apps.**  
 Direct user focus with declarative HTML annotations, fluid SVG cutout morphing, and adaptive theming.
 
-[**Explore Live Playground →**](https://spotlight-js.cttricks.com) · [**Read Documentation →**](./docs) · [**Why Spotlight.js?**](https://spotlight-js.cttricks.com#why-i-made-this) · [**Report Issue →**](https://github.com/cttricks/spotlight.js/issues)
+[**Explore Live Playground →**](https://spotlight.cttricks.com) · [**Read Documentation →**](./docs) · [**Why Spotlight?**](https://spotlight.cttricks.com#why-i-made-this) · [**Report Issue →**](https://github.com/cttricks/spotlight.js/issues)
 
 
-## Why Spotlight.js?
+## Why Spotlight?
 
 Traditional onboarding libraries force you to manage detached 200-line JSON config arrays paired with brittle CSS selectors (`.btn-primary > div:first-child`). The second a teammate refactors a class name, the tour silently breaks.
 
-**Spotlight.js flips this model:** your DOM elements declare their own tour steps in-place using native `data-spot-*` attributes.
+**Spotlight flips this model:** your DOM elements declare their own tour steps in-place using native `data-spot-*` attributes.
 
 - **Zero External Dependencies** — Written in pure TypeScript with lightweight hardware-accelerated SVG (~25KB gzipped).
 - **100% Declarative Markup** — Annotate elements directly with `data-spot-name`, `data-spot-summary`, and `data-spot-media`.
@@ -26,7 +26,7 @@ Traditional onboarding libraries force you to manage detached 200-line JSON conf
 - **Rich Media Embeds** — Seamlessly renders looping MP4/WebM videos, animated GIFs, or responsive images in popovers.
 - **Adaptive Theme Engine** — Real-time `'auto'` (system sync), `'dark'`, and `'light'` color modes.
 - **Universal & SSR-Safe** — Works out-of-the-box with React, Next.js, Vue, Svelte, Astro, or via `esm.sh` in plain HTML.
-- **Production Proven** — Built and dogfooded across production dashboards at [Dotix](https://spotlight-js.cttricks.com#why-i-made-this).
+- **Production Proven** — Built and dogfooded across production dashboards at [Dotix](https://spotlight.cttricks.com#why-i-made-this).
 
 
 ## 📦 Installation
@@ -34,19 +34,19 @@ Traditional onboarding libraries force you to manage detached 200-line JSON conf
 Install via your preferred package manager:
 
 ```bash
-npm install spotlight-js
-# or: pnpm add spotlight-js | yarn add spotlight-js | bun add spotlight-js
+npm install @cttricks/spotlight
+# or: pnpm add @cttricks/spotlight | yarn add @cttricks/spotlight | bun add @cttricks/spotlight
 ```
 
 ### Instant Drop-in via `esm.sh` (No Build Step)
 
 ```html
 <!-- Include Stylesheet -->
-<link rel="stylesheet" href="https://esm.sh/spotlight-js/dist/styles/spotlight.css">
+<link rel="stylesheet" href="https://esm.sh/@cttricks/spotlight/dist/styles/spotlight.css">
 
 <!-- Import & Start -->
 <script type="module">
-  import { spotlight } from 'https://esm.sh/spotlight-js';
+  import { spotlight } from 'https://esm.sh/@cttricks/spotlight';
   const tour = await spotlight();
   tour.start();
 </script>
@@ -71,8 +71,8 @@ npm install spotlight-js
 ### 2. Launch in JavaScript / TypeScript
 
 ```typescript
-import { spotlight } from 'spotlight-js';
-import 'spotlight-js/styles';
+import { spotlight } from '@cttricks/spotlight';
+import '@cttricks/spotlight/styles';
 
 const tour = await spotlight({
   theme: 'auto',              // 'light' | 'dark' | 'auto' (OS color sync)
@@ -101,10 +101,10 @@ tour.destroy();          // Unbind all event listeners and remove DOM overlay
 
 ## 🤖 Built for AI Pair Programmers
 
-Spotlight.js ships with a built-in agent skill specification ([`SKILL.md`](./SKILL.md)).
+Spotlight ships with a built-in agent skill specification ([`SKILL.md`](./SKILL.md)).
 
 When using **Claude Code**, **Cursor**, **Codex**, or **Antigravity** in your project, simply prompt your agent:
-> *"Read `node_modules/spotlight-js/SKILL.md` and implement an onboarding tour for our dashboard."*
+> *"Read `node_modules/@cttricks/spotlight/SKILL.md` and implement an onboarding tour for our dashboard."*
 
 The agent will automatically know all declarative `data-spot-*` attributes, SSR safeguards, and framework recipes without guessing.
 
@@ -125,7 +125,7 @@ Detailed specifications, API references, and framework recipes are organized in 
 
 Tweak highlight strokes, cutout radiuses, backdrop opacities, and animation timings in real-time on our official showcase:
 
-👉 [**spotlight-js.cttricks.com**](https://spotlight-js.cttricks.com#configurator)
+👉 [**spotlight.cttricks.com**](https://spotlight.cttricks.com#configurator)
 
 
 ## Contributing & Community
@@ -136,7 +136,7 @@ Contributions, issues, and feature requests are welcome!
 
 > **AI Disclosure** 🤖
 >
-> This project was developed with the assistance of [Antigravity](https://antigravity.google/). I used it to improve and refine the library, while the [playground/demo-site](https://spotlight-js.cttricks.com) were completely generated by [Antigravity](https://antigravity.google/).
+> This project was developed with the assistance of [Antigravity](https://antigravity.google/). I used it to improve and refine the library, while the [playground/demo-site](https://spotlight.cttricks.com) were completely generated by [Antigravity](https://antigravity.google/).
 >
 > — Tanish
 

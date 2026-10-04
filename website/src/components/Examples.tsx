@@ -73,7 +73,7 @@ data-spot-position="auto"`,
       description: "SSR-safe and zero external dependencies. Works out of the box with Next.js, React, Vite, Vue, Astro, and esm.sh browser imports.",
       code: `<!-- Direct esm.sh Browser Import -->
 <script type="module">
-  import { spotlight } from 'https://esm.sh/spotlight-js';
+  import { spotlight } from 'https://esm.sh/@cttricks/spotlight';
 </script>`,
       badge: "React / Vite / esm.sh"
     }

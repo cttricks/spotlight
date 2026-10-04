@@ -1,6 +1,6 @@
 {
-  "name": "spotlight-js",
-  "version": "2.1.0",
+  "name": "@cttricks/spotlight",
+  "version": "1.0.1",
   "description": "A smooth, modern, and zero-dependency site tour engine with declarative data-spot attributes, rich media, and adaptive themes.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -56,7 +56,7 @@
     "url": "https://github.com/cttricks/spotlight.js/issues",
     "email": "help.cttricks@gmail.com"
   },
-  "homepage": "https://spotlight-js.cttricks.com",
+  "homepage": "https://spotlight.cttricks.com",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",

@@ -14,8 +14,8 @@ export const UseCases: React.FC = () => {
         "Reduces support tickets and user drop-off",
         "Focuses user attention one step at a time"
       ],
-      code: `import { spotlight } from 'spotlight-js';
-import 'spotlight-js/styles';
+      code: `import { spotlight } from '@cttricks/spotlight';
+import '@cttricks/spotlight/styles';
 
 // Launch on first user login
 const tour = await spotlight({

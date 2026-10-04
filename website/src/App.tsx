@@ -170,7 +170,7 @@ export default function App() {
         <FAQ />
         <CTA />
       </main>
-      <Footer />
+      <Footer onStartTour={handleStartTour} />
     </div>
   );
 }

@@ -6,19 +6,19 @@ export const CTA: React.FC = () => {
   const [pm, setPm] = useState<'npm' | 'pnpm' | 'yarn' | 'bun'>('npm');
 
   const pmCommands = {
-    npm: 'npm install spotlight-js',
-    pnpm: 'pnpm add spotlight-js',
-    yarn: 'yarn add spotlight-js',
-    bun: 'bun add spotlight-js',
+    npm: 'npm install @cttricks/spotlight',
+    pnpm: 'pnpm add @cttricks/spotlight',
+    yarn: 'yarn add @cttricks/spotlight',
+    bun: 'bun add @cttricks/spotlight',
   };
 
   const cdnSnippet = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Spotlight.js Quick Test</title>
+  <title>Spotlight Quick Test</title>
   <!-- 1. Include Spotlight Styles -->
-  <link rel="stylesheet" href="https://esm.sh/spotlight-js/dist/styles/spotlight.css">
+  <link rel="stylesheet" href="https://esm.sh/@cttricks/spotlight/dist/styles/spotlight.css">
 </head>
 <body style="font-family: sans-serif; padding: 50px; text-align: center;">
 
@@ -34,7 +34,7 @@ export const CTA: React.FC = () => {
 
   <!-- 3. Load Spotlight from esm.sh & Start Tour -->
   <script type="module">
-    import { spotlight } from 'https://esm.sh/spotlight-js';
+    import { spotlight } from 'https://esm.sh/@cttricks/spotlight';
 
     const tour = await spotlight();
     tour.start();
@@ -60,7 +60,7 @@ export const CTA: React.FC = () => {
 
         {/* Section Heading */}
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-white mb-3">
-          Add Spotlight.js to your project
+          Add Spotlight to your project
         </h2>
 
         <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto mb-10 leading-relaxed">

@@ -9,7 +9,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('npm install spotlight-js');
+    navigator.clipboard.writeText('npm install @cttricks/spotlight');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -33,7 +33,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
         {/* Release Pill Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-100/90 dark:bg-neutral-900/90 text-xs font-mono text-neutral-600 dark:text-neutral-400 mb-6 shadow-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>v2.1.0 • TypeScript Native</span>
+          <span>v1.0.1 • TypeScript Native</span>
           <span className="text-neutral-300 dark:text-neutral-700">|</span>
           <span className="text-neutral-900 dark:text-neutral-200 font-medium">Zero Dependencies</span>
           <span className="text-neutral-300 dark:text-neutral-700">|</span>
@@ -43,8 +43,8 @@ export const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
         {/* Main Headline */}
         <h1 
           data-spot-id="1"
-          data-spot-name="Welcome to Spotlight.js"
-          data-spot-summary="Spotlight.js directs your users' focus with fluid SVG cutout morphing, modern glassmorphic popovers, and rich media support."
+          data-spot-name="Welcome to Spotlight"
+          data-spot-summary="Spotlight directs your users' focus with fluid SVG cutout morphing, modern glassmorphic popovers, and rich media support."
           data-spot-media="/spotlight.png"
           data-spot-position="bottom"
           className="text-4xl sm:text-6xl font-bold tracking-tight text-neutral-900 dark:text-white mb-5 max-w-3xl mx-auto leading-[1.12]">
@@ -74,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
           <button
             onClick={handleCopy}
             className="w-full sm:w-auto inline-flex items-center justify-between sm:justify-center gap-3 px-4 py-2.5 rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 hover:bg-neutral-100 dark:hover:bg-neutral-900 text-neutral-800 dark:text-neutral-300 text-xs font-mono transition-all">
-            <span>npm i spotlight-js</span>
+            <span>npm i @cttricks/spotlight</span>
             {copied ? (
               <Check className="w-3.5 h-3.5 text-emerald-500" />
             ) : (

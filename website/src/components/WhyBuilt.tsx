@@ -10,7 +10,7 @@ export const WhyBuilt: React.FC = () => {
         <div className="text-center max-w-2xl mx-auto mb-12">
           <div className="text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-2">The Backstory</div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-white">
-            Why I built Spotlight.js
+            Why I built Spotlight
           </h2>
           <p className="mt-3 text-sm sm:text-base text-neutral-600 dark:text-neutral-400">
             A frustration born out of building complex SaaS dashboards.
@@ -49,7 +49,7 @@ export const WhyBuilt: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-xs font-semibold text-neutral-900 dark:text-white">Tanish Raj</div>
-                  <div className="text-[11px] text-neutral-500">Creator of Spotlight.js • Tested in production at Dotix</div>
+                  <div className="text-[11px] text-neutral-500">Creator of Spotlight • Tested in production at Dotix</div>
                 </div>
               </div>
             </a>
@@ -95,7 +95,7 @@ export const WhyBuilt: React.FC = () => {
           <div className="charcoal-card rounded-lg p-5">
             <div className="flex items-center gap-2 mb-3 text-neutral-900 dark:text-white font-semibold text-xs uppercase tracking-wider">
               <Check className="w-4 h-4 text-emerald-500" />
-              <span>The Spotlight.js Way</span>
+              <span>The Spotlight Way</span>
             </div>
             <ul className="space-y-2 text-xs text-neutral-600 dark:text-neutral-400">
               <li className="flex items-start gap-2">

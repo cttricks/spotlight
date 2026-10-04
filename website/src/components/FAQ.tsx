@@ -15,10 +15,10 @@ export const FAQ: React.FC = () => {
 
   const faqs: FAQItem[] = [
     {
-      question: "How is Spotlight.js different from traditional libraries like Intro.js or Driver.js?",
+      question: "How is Spotlight different from traditional libraries like Intro.js or Driver.js?",
       answer: (
         <>
-          Most tour engines force you to maintain a detached JavaScript/JSON config array referencing fragile CSS selectors (<code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">.btn-primary &gt; span:first-child</code>). The second a teammate refactors a class name, the tour silently breaks. Spotlight.js is 100% declarative: you annotate elements directly in HTML/JSX with <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">data-spot-*</code> attributes. The engine auto-scans the DOM at runtime.
+          Most tour engines force you to maintain a detached JavaScript/JSON config array referencing fragile CSS selectors (<code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">.btn-primary &gt; span:first-child</code>). The second a teammate refactors a class name, the tour silently breaks. Spotlight is 100% declarative: you annotate elements directly in HTML/JSX with <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">data-spot-*</code> attributes. The engine auto-scans the DOM at runtime.
         </>
       )
     },
@@ -26,7 +26,7 @@ export const FAQ: React.FC = () => {
       question: "Does it support modern frameworks like React, Next.js, and Vue?",
       answer: (
         <>
-          Yes. Spotlight.js is completely framework-agnostic and written in pure TypeScript with zero external dependencies (~25KB gzipped). It is SSR-safe and works out of the box with React, Next.js (App & Pages router), Vue, Svelte, Astro, or via a single CDN script tag on plain HTML websites.
+          Yes. Spotlight is completely framework-agnostic and written in pure TypeScript with zero external dependencies (~25KB gzipped). It is SSR-safe and works out of the box with React, Next.js (App & Pages router), Vue, Svelte, Astro, or via a single CDN script tag on plain HTML websites.
         </>
       )
     },
@@ -50,7 +50,7 @@ export const FAQ: React.FC = () => {
       question: "How does the adaptive light and dark theme engine work?",
       answer: (
         <>
-          Spotlight.js features a built-in theme engine supporting <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">'auto'</code>, <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">'dark'</code>, and <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">'light'</code> modes. In auto mode, it dynamically monitors <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">prefers-color-scheme</code> and reacts in real-time. You can also explicitly toggle themes at runtime using <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">tour.setTheme('dark')</code> to sync with your application's theme provider.
+          Spotlight features a built-in theme engine supporting <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">'auto'</code>, <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">'dark'</code>, and <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">'light'</code> modes. In auto mode, it dynamically monitors <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">prefers-color-scheme</code> and reacts in real-time. You can also explicitly toggle themes at runtime using <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">tour.setTheme('dark')</code> to sync with your application's theme provider.
         </>
       )
     },
@@ -63,10 +63,10 @@ export const FAQ: React.FC = () => {
       )
     },
     {
-      question: "Is Spotlight.js compatible with AI coding agents (Claude Code, Cursor, Codex, Antigravity)?",
+      question: "Is Spotlight compatible with AI coding agents (Claude Code, Cursor, Codex, Antigravity)?",
       answer: (
         <>
-          Yes! Spotlight.js includes a dedicated <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">SKILL.md</code> packaged directly with the library. When building features with AI pair programmers, simply prompt your agent: <em>"Read node_modules/spotlight-js/SKILL.md and implement an onboarding tour for our dashboard."</em> The agent will automatically know all declarative <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">data-spot-*</code> attributes, SSR safety patterns, and lifecycle methods without hallucinating.
+          Yes! Spotlight includes a dedicated <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">SKILL.md</code> packaged directly with the library. When building features with AI pair programmers, simply prompt your agent: <em>"Read node_modules/@cttricks/spotlight/SKILL.md and implement an onboarding tour for our dashboard."</em> The agent will automatically know all declarative <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">data-spot-*</code> attributes, SSR safety patterns, and lifecycle methods without hallucinating.
         </>
       )
     }
@@ -83,7 +83,7 @@ export const FAQ: React.FC = () => {
             Frequently Asked Questions
           </h2>
           <p className="mt-3 text-sm sm:text-base text-neutral-600 dark:text-neutral-400">
-            Everything you need to know about Spotlight.js and how it works under the hood.
+            Everything you need to know about Spotlight and how it works under the hood.
           </p>
         </div>
 

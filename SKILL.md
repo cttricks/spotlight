@@ -1,25 +1,25 @@
 ---
-name: spotlight-js
+name: spotlight
 description: >-
   Expert guide for implementing, configuring, and troubleshooting interactive product tours,
-  onboarding walkthroughs, and UI highlights using Spotlight.js (spotlight-js).
+  onboarding walkthroughs, and UI highlights using Spotlight (@cttricks/spotlight).
   Use this skill whenever building site tours, user onboarding flows, or feature spotlights
   in React, Next.js (SSR safe), Vue, Vite, Astro, or vanilla HTML/CDN.
 ---
 
-# Spotlight.js — Agent Implementation & Integration Skill
+# Spotlight — Agent Implementation & Integration Skill
 
-This skill provides AI agents (Antigravity, Claude Code, OpenAI Codex, Cursor, etc.) and developers with the definitive, complete instructions for integrating **Spotlight.js** into any web application.
+This skill provides AI agents (Antigravity, Claude Code, OpenAI Codex, Cursor, etc.) and developers with the definitive, complete instructions for integrating **Spotlight** (`@cttricks/spotlight`) into any web application.
 
 ---
 
 ## 1. Core Philosophy & Golden Rules
 
-**Spotlight.js** is a modern, zero-dependency site tour engine built in pure TypeScript and CSS (~25 kB gzipped). It replaces fragile, detached 200-line JSON configuration arrays with **declarative in-DOM HTML attributes**.
+**Spotlight** is a modern, zero-dependency site tour engine built in pure TypeScript and CSS (~25 kB gzipped). It replaces fragile, detached 200-line JSON configuration arrays with **declarative in-DOM HTML attributes**.
 
 ### The 4 Golden Rules for Agents:
 1. **Prefer Declarative Markup:** Annotate elements directly in HTML/JSX with `data-spot-*` attributes. Do not build large detached selector arrays unless the tour target elements are dynamically generated outside the template.
-2. **Always Import CSS:** Spotlight requires its accompanying stylesheet. Tour popovers and cutouts will fail to render correctly without `import 'spotlight-js/styles';`.
+2. **Always Import CSS:** Spotlight requires its accompanying stylesheet. Tour popovers and cutouts will fail to render correctly without `import '@cttricks/spotlight/styles';`.
 3. **SSR Safety First:** In Next.js, Remix, Astro, or Nuxt, always wrap `spotlight()` instantiation inside client lifecycle hooks (`useEffect` or `onMounted`) or guard with `typeof window !== 'undefined'`. Never run it during server evaluation.
 4. **Call `tour.destroy()` on Unmount:** When a component or page unmounts, always invoke `tour.destroy()` to detach window listeners and clean up DOM artifacts.
 
@@ -30,14 +30,14 @@ This skill provides AI agents (Antigravity, Claude Code, OpenAI Codex, Cursor, e
 ### Option A: Modern Package Managers (React, Next.js, Vue, Vite, Astro)
 
 ```bash
-npm install spotlight-js
-# or: pnpm add spotlight-js | yarn add spotlight-js | bun add spotlight-js
+npm install @cttricks/spotlight
+# or: pnpm add @cttricks/spotlight | yarn add @cttricks/spotlight | bun add @cttricks/spotlight
 ```
 
 **Essential Imports:**
 ```typescript
-import { spotlight } from 'spotlight-js';
-import 'spotlight-js/styles'; // Required: Popover & overlay styling
+import { spotlight } from '@cttricks/spotlight';
+import '@cttricks/spotlight/styles'; // Required: Popover & overlay styling
 ```
 
 ---
@@ -50,7 +50,7 @@ import 'spotlight-js/styles'; // Required: Popover & overlay styling
 <head>
   <meta charset="UTF-8" />
   <!-- 1. Stylesheet -->
-  <link rel="stylesheet" href="https://esm.sh/spotlight-js/dist/styles/spotlight.css" />
+  <link rel="stylesheet" href="https://esm.sh/@cttricks/spotlight/dist/styles/spotlight.css" />
 </head>
 <body>
   <!-- 2. Annotated DOM Elements -->
@@ -63,7 +63,7 @@ import 'spotlight-js/styles'; // Required: Popover & overlay styling
 
   <!-- 3. Module Script -->
   <script type="module">
-    import { spotlight } from 'https://esm.sh/spotlight-js';
+    import { spotlight } from 'https://esm.sh/@cttricks/spotlight';
     
     const tour = await spotlight({ theme: 'auto' });
     tour.start();
@@ -78,11 +78,11 @@ import 'spotlight-js/styles'; // Required: Popover & overlay styling
 
 ```html
 <!-- Stylesheet -->
-<link rel="stylesheet" href="https://esm.sh/spotlight-js/dist/styles/spotlight.css" />
+<link rel="stylesheet" href="https://esm.sh/@cttricks/spotlight/dist/styles/spotlight.css" />
 
 <!-- Standalone Global Bundle (exposes window.Spotlight) -->
 <script 
-  src="https://esm.sh/spotlight-js/dist/spotlight.global.js" 
+  src="https://esm.sh/@cttricks/spotlight/dist/spotlight.global.js" 
   data-spotlight-auto="true" 
   data-spotlight-theme="auto">
 </script>
@@ -289,8 +289,8 @@ Available events: `'start'`, `'change'`, `'next'`, `'previous'`, `'complete'`, `
 Create `useSpotlight.ts`:
 ```typescript
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { spotlight, SpotlightControls, SpotlightOptions } from 'spotlight-js';
-import 'spotlight-js/styles';
+import { spotlight, SpotlightControls, SpotlightOptions } from '@cttricks/spotlight';
+import '@cttricks/spotlight/styles';
 
 export function useSpotlight(options: SpotlightOptions = {}) {
   const tourRef = useRef<SpotlightControls | null>(null);
@@ -368,8 +368,8 @@ In Next.js App Router, components default to Server Components. Spotlight intera
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { spotlight, SpotlightControls } from 'spotlight-js';
-import 'spotlight-js/styles';
+import { spotlight, SpotlightControls } from '@cttricks/spotlight';
+import '@cttricks/spotlight/styles';
 
 export default function OnboardingTour() {
   const tourRef = useRef<SpotlightControls | null>(null);
@@ -410,8 +410,8 @@ export default function OnboardingTour() {
 ```vue
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, ref } from 'vue';
-import { spotlight, type SpotlightControls } from 'spotlight-js';
-import 'spotlight-js/styles';
+import { spotlight, type SpotlightControls } from '@cttricks/spotlight';
+import '@cttricks/spotlight/styles';
 
 const tour = ref<SpotlightControls | null>(null);
 
@@ -454,9 +454,9 @@ await tour.goTo('new-element-id');
 
 ## 9. Agent Troubleshooting & Validation Checklist
 
-When writing or reviewing code that uses Spotlight.js, verify the following:
+When writing or reviewing code that uses Spotlight, verify the following:
 
-- [ ] **CSS Included:** Is `import 'spotlight-js/styles';` present in the root layout or component?
+- [ ] **CSS Included:** Is `import '@cttricks/spotlight/styles';` present in the root layout or component?
 - [ ] **SSR Safeguard:** Is `spotlight()` isolated to client lifecycle (`useEffect`, `onMounted`, or `'use client'`)?
 - [ ] **Cleanup:** Is `tour.destroy()` called in unmount cleanup to avoid lingering SVG overlays?
 - [ ] **Step Ordering:** Are steps numbered logically (`data-spot-id="1"`, `data-spot-id="2"`) or using `data-spot-order`?

@@ -20,13 +20,13 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme, onStartTou
               alt="Spotlight Logo" 
               className="w-7 h-7 object-contain transition-transform group-hover:scale-105 filter dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
             />
-            <span className="font-semibold text-base tracking-tight text-neutral-900 dark:text-white flex items-center gap-1">
-              Spotlight<span className="text-neutral-500 font-mono text-xs">.js</span>
+            <span className="font-semibold text-base tracking-tight text-neutral-900 dark:text-white">
+              Spotlight
             </span>
           </a>
           
           <span className="hidden sm:inline-flex items-center px-2 py-0.5 text-[11px] font-mono font-medium rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400">
-            v2.1.0
+            v1.0.1
           </span>
         </div>
 
