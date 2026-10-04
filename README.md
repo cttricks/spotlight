@@ -1,60 +1,144 @@
-<div align="center">
-<a href="https://cttricks.github.io/spotlight.js/" target="_blank" rel="noopener noreferrer nofollow">
-<img src="https://raw.githubusercontent.com/cttricks/spotlight.js/master/docs/assets/img/spotlight-js-banner.png" alt="Spotlight.js" />
-</a>
-</div>
-&nbsp;
+![Spotlight.JS OgBanner](https://repository-images.githubusercontent.com/847267775/ad4cfde6-678a-42a6-91d4-411b2c316e86)
 
-A robust, efficient, and fully adaptable pure JavaScript engine designed to direct user attention across your webpage. Free of external libraries, it ensures compatibility with all major browsers and provides a wide range of customization possibilities.
+# Spotlight
 
-[Check Out the Demo](https://cttricks.github.io/spotlight.js/)
+[![npm version](https://img.shields.io/badge/Spotlight-v1.0.1-red?style=flat-square)](https://www.npmjs.com/package/@cttricks/spotlight)
+[![license](https://img.shields.io/badge/license-MIT-yellow.svg?style=flat-square)](./LICENSE)
+[![Playground](https://img.shields.io/badge/Live-Playground-success?style=flat-square)](https://spotlight.cttricks.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg?style=flat-square)](#)
 
-## Quick Start Guide
+**The zero-dependency site tour engine for modern web apps.**  
+Direct user focus with declarative HTML annotations, fluid SVG cutout morphing, and adaptive theming.
 
-To quickly get started with Spotlight.js, follow these simple steps to create a basic integration without writing any additional JavaScript code. This example demonstrates how easily you can begin using the library, but keep in mind that Spotlight.js offers a wide range of features and controls for further customization.
+[**Explore Live Playground →**](https://spotlight.cttricks.com) · [**Read Documentation →**](./docs) · [**Why Spotlight?**](https://spotlight.cttricks.com#why-i-made-this) · [**Report Issue →**](https://github.com/cttricks/spotlight/issues)
 
-### Insert Spotlight Comments
 
-Start by adding an HTML comment directly before the element you want to draw attention to. This comment will instruct Spotlight.js to highlight and display the specified content to your visitors. 
+## Why Spotlight?
 
-```html
-<!-- Spotlight; Hello Visitor; Let's start the website tour. -->
-<button type="spotlight-button:start">Start Demo Tour</button>
+Traditional onboarding libraries force you to manage detached 200-line JSON config arrays paired with brittle CSS selectors (`.btn-primary > div:first-child`). The second a teammate refactors a class name, the tour silently breaks.
 
-<!-- Spotlight; Feature Name; A short description about this feature. -->
-<div class="container">
-    ...
-</div>
-```
-> Note that the `type="spotlight-button:start"` attribute is used as a trigger to start the Spotlight tour.
+**Spotlight flips this model:** your DOM elements declare their own tour steps in-place using native `data-spot-*` attributes.
 
-You can place the comment anywhere on your page to highlight the desired element during the tour for your visitors.
-```html
-<ul>
-    ...
-    <!-- Spotlight; Our Store; Visit out store to explore next gen products....  -->
-    <li>Visit Store</li>
-    ...
-</ul>
-```
+- **Zero External Dependencies** — Written in pure TypeScript with lightweight hardware-accelerated SVG (~25KB gzipped).
+- **100% Declarative Markup** — Annotate elements directly with `data-spot-name`, `data-spot-summary`, and `data-spot-media`.
+- **Fluid Cutout Morphing** — Smooth cubic-bezier transitions glide between target elements of any shape or size.
+- **Collision-Aware Positioning** — Auto-flips (top, bottom, left, right) with boundary clamping and dynamically tethered arrows.
+- **Rich Media Embeds** — Seamlessly renders looping MP4/WebM videos, animated GIFs, or responsive images in popovers.
+- **Adaptive Theme Engine** — Real-time `'auto'` (system sync), `'dark'`, and `'light'` color modes.
+- **Universal & SSR-Safe** — Works out-of-the-box with React, Next.js, Vue, Svelte, Astro, or via `esm.sh` in plain HTML.
+- **Production Proven** — Built and dogfooded across production dashboards at [Dotix](https://spotlight.cttricks.com#why-i-made-this).
 
-In this example, the comment instructs Spotlight to greet the visitor and initiate a simple tour.
 
-### Include Spotlight with 🪄 Magical Attribute
+## 📦 Installation
 
-Next, include the Spotlight.js script by adding the following `<script>` tag at the very bottom of the `<body>` section of your webpage. This ensures that the script loads after the rest of your content. 
+Install via your preferred package manager:
 
-```html
-<script src="https://cdn.jsdelivr.net/gh/cttricks/spotlight.js/dist/spotlight.min.js" type="module" lights-on ></script>
+```bash
+npm install @cttricks/spotlight
+# or: pnpm add @cttricks/spotlight | yarn add @cttricks/spotlight | bun add @cttricks/spotlight
 ```
 
-> Notice the `lights-on` attribute in the `<script>` tag—this works like magic, automatically activating Spotlight.js without requiring any additional configuration or code.
+### Instant Drop-in via `esm.sh` (No Build Step)
 
-And that's it! With the lights-on attribute, your webpage is instantly equipped with Spotlight.js without needing any further JavaScript. This is just a basic example of how quickly you can integrate the library. If you want to explore more advanced features and customization options, Spotlight.js provides extensive controls to tailor the user experience precisely to your needs. 
+```html
+<!-- Include Stylesheet -->
+<link rel="stylesheet" href="https://esm.sh/@cttricks/spotlight/dist/styles/spotlight.css">
 
-For demos and documentation, visit [spotlight.js/docs](https://cttricks.github.io/spotlight.js/docs)
+<!-- Import & Start -->
+<script type="module">
+  import { spotlight } from 'https://esm.sh/@cttricks/spotlight';
+  const tour = await spotlight();
+  tour.start();
+</script>
+```
 
 
-## Contributions
+## ⚡ 30-Second Quickstart
 
-I’d love your help—whether it’s through pull requests, reporting issues, or simply sharing the project with others.
+### 1. Tag your elements in HTML or JSX
+
+```html
+<button 
+  data-spot-id="search-btn"
+  data-spot-name="Instant Search" 
+  data-spot-summary="Press ⌘K anytime to search documents and shortcuts."
+  data-spot-media="/assets/search-preview.mp4"
+  data-spot-position="bottom">
+  Search (⌘K)
+</button>
+```
+
+### 2. Launch in JavaScript / TypeScript
+
+```typescript
+import { spotlight } from '@cttricks/spotlight';
+import '@cttricks/spotlight/styles';
+
+const tour = await spotlight({
+  theme: 'auto',              // 'light' | 'dark' | 'auto' (OS color sync)
+  highlightColor: '#ffffff',  // Custom stroke & accent color
+  backdropBlur: 4             // Glassmorphism backdrop blur (px)
+});
+
+tour.start();
+```
+
+
+## Programmatic Controls
+
+```typescript
+tour.start();            // Start tour from step 1
+tour.start({ from: 2 }); // Start from specific step ID or index
+tour.next();             // Advance to next step
+tour.previous();         // Return to previous step
+tour.goTo(3);            // Jump directly to step index
+tour.end();              // Close the active tour
+tour.setTheme('dark');   // Switch theme live ('light' | 'dark' | 'auto')
+tour.destroy();          // Unbind all event listeners and remove DOM overlay
+```
+
+> **Need multi-tour flows?** Tag elements with `data-spot-group="billing"` and launch isolated sequences using `tour.start({ group: 'billing' })`.
+
+## 🤖 Built for AI Pair Programmers
+
+Spotlight ships with a built-in agent skill specification ([`SKILL.md`](./SKILL.md)).
+
+When using **Claude Code**, **Cursor**, **Codex**, or **Antigravity** in your project, simply prompt your agent:
+> *"Read `node_modules/@cttricks/spotlight/SKILL.md` and implement an onboarding tour for our dashboard."*
+
+The agent will automatically know all declarative `data-spot-*` attributes, SSR safeguards, and framework recipes without guessing.
+
+## Complete Documentation
+
+Detailed specifications, API references, and framework recipes are organized in the [`docs/`](./docs) directory:
+
+| Guide | Description |
+| :--- | :--- |
+| [**AI Agent Skill (SKILL.md)**](./SKILL.md) | Agent prompt instructions, declarative cheat-sheet, and framework recipes for Claude Code, Cursor, Codex, and Antigravity. |
+| [**Data Attributes Reference**](./docs/data-attributes-spec.md) | Complete specification for all `data-spot-*` attributes, media types, and grouping. |
+| [**Framework & CDN Integration**](./docs/framework-cdn-guide.md) | Setup recipes for Next.js (App & Pages router), React hooks, Vue, Astro, and CDN script tags. |
+| [**UI, Animation & Theme Design**](./docs/ui-animation-design.md) | Cutout morphing mechanics, glassmorphic popover styling, and CSS token overrides. |
+| [**Architecture & API Reference**](./docs/architecture.md) | Engine lifecycle state machine, typed event emitters, collision detection, and SSR safety. |
+
+
+## Live Playground
+
+Tweak highlight strokes, cutout radiuses, backdrop opacities, and animation timings in real-time on our official showcase:
+
+👉 [**spotlight.cttricks.com**](https://spotlight.cttricks.com#configurator)
+
+
+## Contributing & Community
+
+Contributions, issues, and feature requests are welcome!
+- See [Contribution.md](./Contribution.md) for local development setup.
+- File bug reports and proposals on [GitHub Issues](https://github.com/cttricks/spotlight/issues).
+
+> **AI Disclosure** 🤖
+>
+> This project was developed with the assistance of [Antigravity](https://antigravity.google/). I used it to improve and refine the library, while the [playground/demo-site](https://spotlight.cttricks.com) were completely generated by [Antigravity](https://antigravity.google/).
+>
+> — Tanish
+
+
+MIT © [Tanish Raj](https://github.com/cttricks)

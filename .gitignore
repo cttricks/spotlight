@@ -5,4 +5,8 @@
 .idea
 .DS_Store
 node_modules
-dist/*.txt
+dist/*
+.trash/*
+
+# Website Pages & Components
+/website/dist

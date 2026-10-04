@@ -1,0 +1,424 @@
+/* ==========================================================================
+   Spotlight.js — Modern Design System & Theme Engine
+   ========================================================================== */
+
+:root,
+.sl-spotlight-root {
+  /* Default Theme Tokens (Light Mode) */
+  --sl-z-index: 99999;
+  --sl-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sl-transition-duration: 320ms;
+  --sl-transition-timing: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Surface & Backdrop */
+  --sl-overlay-color: rgba(15, 23, 42, 0.65);
+  --sl-overlay-opacity: 1;
+  --sl-backdrop-blur: 4px;
+
+  /* Cutout Highlight */
+  --sl-highlight-stroke: #6366f1;
+  --sl-highlight-stroke-width: 3px;
+  --sl-highlight-radius: 8px;
+  --sl-highlight-glow: 0 0 12px rgba(99, 102, 241, 0.45);
+
+  /* Popover Card (Light) */
+  --sl-popover-bg: rgba(255, 255, 255, 0.94);
+  --sl-popover-text: #1e293b;
+  --sl-popover-text-muted: #64748b;
+  --sl-popover-border: rgba(226, 232, 240, 0.8);
+  --sl-popover-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
+  --sl-popover-radius: 14px;
+  --sl-popover-width: 340px;
+  --sl-popover-blur: 16px;
+
+  /* Buttons (Light) */
+  --sl-btn-primary-bg: #6366f1;
+  --sl-btn-primary-hover: #4f46e5;
+  --sl-btn-primary-text: #ffffff;
+  --sl-btn-secondary-bg: transparent;
+  --sl-btn-secondary-hover: rgba(241, 245, 249, 0.9);
+  --sl-btn-secondary-text: #475569;
+  --sl-btn-secondary-border: rgba(203, 213, 225, 0.8);
+  --sl-btn-radius: 8px;
+}
+
+/* Dark Theme Overrides */
+[data-spotlight-theme="dark"] {
+  --sl-overlay-color: rgba(0, 0, 0, 0.78);
+  --sl-highlight-stroke: #818cf8;
+  --sl-highlight-glow: 0 0 14px rgba(129, 140, 248, 0.5);
+
+  /* Popover Card (Dark) */
+  --sl-popover-bg: rgba(24, 24, 27, 0.92);
+  --sl-popover-text: #f8fafc;
+  --sl-popover-text-muted: #94a3b8;
+  --sl-popover-border: rgba(63, 63, 70, 0.7);
+  --sl-popover-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.5), 0 12px 14px -6px rgba(0, 0, 0, 0.4);
+
+  /* Buttons (Dark) */
+  --sl-btn-primary-bg: #6366f1;
+  --sl-btn-primary-hover: #818cf8;
+  --sl-btn-primary-text: #ffffff;
+  --sl-btn-secondary-bg: rgba(39, 39, 42, 0.6);
+  --sl-btn-secondary-hover: rgba(63, 63, 70, 0.8);
+  --sl-btn-secondary-text: #cbd5e1;
+  --sl-btn-secondary-border: rgba(82, 82, 91, 0.6);
+}
+
+/* ==========================================================================
+   Root Container
+   ========================================================================== */
+
+.sl-spotlight-root {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: var(--sl-z-index);
+  pointer-events: none;
+  overflow: hidden;
+  font-family: var(--sl-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sl-spotlight-root:not(.sl-active) {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+/* ==========================================================================
+   Overlay & SVG Cutout
+   ========================================================================== */
+
+.sl-overlay-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--sl-transition-duration) ease, visibility var(--sl-transition-duration) ease;
+}
+
+.sl-overlay-svg.sl-visible {
+  opacity: var(--sl-overlay-opacity, 1);
+  visibility: visible;
+}
+
+.sl-backdrop-rect {
+  fill: var(--sl-overlay-color);
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.sl-overlay-svg.sl-visible .sl-backdrop-rect {
+  pointer-events: auto;
+}
+
+.sl-cutout-rect {
+  transition:
+    x var(--sl-transition-duration) var(--sl-transition-timing),
+    y var(--sl-transition-duration) var(--sl-transition-timing),
+    width var(--sl-transition-duration) var(--sl-transition-timing),
+    height var(--sl-transition-duration) var(--sl-transition-timing),
+    rx var(--sl-transition-duration) var(--sl-transition-timing);
+}
+
+.sl-border-rect {
+  fill: none;
+  stroke: var(--sl-highlight-stroke);
+  stroke-width: var(--sl-highlight-stroke-width);
+  filter: var(--sl-highlight-glow);
+  pointer-events: none;
+  transition:
+    x var(--sl-transition-duration) var(--sl-transition-timing),
+    y var(--sl-transition-duration) var(--sl-transition-timing),
+    width var(--sl-transition-duration) var(--sl-transition-timing),
+    height var(--sl-transition-duration) var(--sl-transition-timing),
+    rx var(--sl-transition-duration) var(--sl-transition-timing),
+    stroke 200ms ease;
+}
+
+/* ==========================================================================
+   Popover Card Component
+   ========================================================================== */
+
+.sl-popover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sl-popover-width);
+  max-width: calc(100vw - 32px);
+  background: var(--sl-popover-bg);
+  color: var(--sl-popover-text);
+  border: 1px solid var(--sl-popover-border);
+  border-radius: var(--sl-popover-radius);
+  box-shadow: var(--sl-popover-shadow);
+  backdrop-filter: blur(var(--sl-popover-blur));
+  -webkit-backdrop-filter: blur(var(--sl-popover-blur));
+  padding: 18px 20px;
+  pointer-events: auto;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.96);
+  transform-origin: center center;
+  transition:
+    top var(--sl-transition-duration) var(--sl-transition-timing),
+    left var(--sl-transition-duration) var(--sl-transition-timing),
+    opacity 240ms ease,
+    transform 240ms var(--sl-transition-timing),
+    visibility 240ms;
+  z-index: calc(var(--sl-z-index) + 1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sl-popover.sl-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* ==========================================================================
+   Popover Arrow
+   ========================================================================== */
+
+.sl-popover-arrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--sl-popover-bg);
+  transform: rotate(45deg);
+  pointer-events: none;
+  border: 1px solid transparent;
+}
+
+/* Arrow Placements */
+.sl-popover[data-placement="bottom"] .sl-popover-arrow {
+  top: -6px;
+  border-top: 1px solid var(--sl-popover-border);
+  border-left: 1px solid var(--sl-popover-border);
+}
+
+.sl-popover[data-placement="top"] .sl-popover-arrow {
+  bottom: -6px;
+  border-bottom: 1px solid var(--sl-popover-border);
+  border-right: 1px solid var(--sl-popover-border);
+}
+
+.sl-popover[data-placement="right"] .sl-popover-arrow {
+  left: -6px;
+  border-bottom: 1px solid var(--sl-popover-border);
+  border-left: 1px solid var(--sl-popover-border);
+}
+
+.sl-popover[data-placement="left"] .sl-popover-arrow {
+  right: -6px;
+  border-top: 1px solid var(--sl-popover-border);
+  border-right: 1px solid var(--sl-popover-border);
+}
+
+/* ==========================================================================
+   Popover Header
+   ========================================================================== */
+
+.sl-popover-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sl-popover-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--sl-popover-text);
+  letter-spacing: -0.01em;
+}
+
+.sl-popover-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--sl-popover-text-muted);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 150ms ease, background-color 150ms ease;
+  flex-shrink: 0;
+}
+
+.sl-popover-close-btn:hover {
+  color: var(--sl-popover-text);
+  background-color: var(--sl-btn-secondary-hover);
+}
+
+/* ==========================================================================
+   Media Container (Image / GIF / Video)
+   ========================================================================== */
+
+.sl-popover-media {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.sl-popover-media-img {
+  display: block;
+  width: 100%;
+  max-height: 190px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.sl-popover-media-video {
+  display: block;
+  width: 100%;
+  max-height: 190px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ==========================================================================
+   Popover Summary / Description
+   ========================================================================== */
+
+.sl-popover-summary {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--sl-popover-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Popover Footer & Controls
+   ========================================================================== */
+
+.sl-popover-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.sl-popover-progress {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--sl-popover-text-muted);
+  user-select: none;
+}
+
+.sl-popover-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   Button Components
+   ========================================================================== */
+
+.sl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--sl-btn-radius);
+  cursor: pointer;
+  transition: all 180ms ease;
+  user-select: none;
+  white-space: nowrap;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.sl-btn:focus-visible {
+  outline: 2px solid var(--sl-highlight-stroke);
+  outline-offset: 2px;
+}
+
+/* Primary Button */
+.sl-btn-primary {
+  background-color: var(--sl-btn-primary-bg);
+  color: var(--sl-btn-primary-text);
+  border: 1px solid transparent;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.sl-btn-primary:hover {
+  background-color: var(--sl-btn-primary-hover);
+  transform: translateY(-1px);
+}
+
+.sl-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Done Button Accent */
+.sl-btn-primary.sl-btn-done {
+  background-color: #10b981;
+}
+
+.sl-btn-primary.sl-btn-done:hover {
+  background-color: #059669;
+}
+
+/* Secondary Button */
+.sl-btn-secondary {
+  background-color: var(--sl-btn-secondary-bg);
+  color: var(--sl-btn-secondary-text);
+  border: 1px solid var(--sl-btn-secondary-border);
+}
+
+.sl-btn-secondary:hover {
+  background-color: var(--sl-btn-secondary-hover);
+  color: var(--sl-popover-text);
+}
+
+.sl-btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Skip Button */
+.sl-btn-skip {
+  border-color: transparent;
+  color: var(--sl-popover-text-muted);
+  padding: 6px 8px;
+}
+
+.sl-btn-skip:hover {
+  border-color: transparent;
+  color: var(--sl-popover-text);
+}
+
+/* ==========================================================================
+   Accessibility & Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-overlay-svg,
+  .sl-cutout-rect,
+  .sl-border-rect,
+  .sl-popover,
+  .sl-btn {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
