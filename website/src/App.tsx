@@ -166,9 +166,9 @@ export default function App() {
           onChange={handleConfigChange}
           onTest={handleStartTour}
         />
+        <CTA />
         <WhyBuilt />
         <FAQ />
-        <CTA />
       </main>
       <Footer onStartTour={handleStartTour} />
     </div>

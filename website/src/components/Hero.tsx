@@ -15,12 +15,12 @@ export const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
   };
 
   return (
-    <section className="relative p-20 overflow-hidden bg-dots-subtle">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-dots-subtle">
+      <div className="max-w-5xl mx-auto text-center relative z-10">
         
         {/* Stage Spotlight Lamp Fixture */}
         <div className="relative flex justify-center items-center mb-2">
-          <div className="relative w-40 h-40 -mt-6 select-none pointer-events-none">
+          <div className="relative w-28 h-28 sm:w-36 sm:h-36 -mt-2 sm:-mt-6 select-none pointer-events-none">
             {/* The Lamp Image */}
             <img 
               src="/spotlight.png" 
@@ -31,13 +31,13 @@ export const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
         </div>
 
         {/* Release Pill Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-100/90 dark:bg-neutral-900/90 text-xs font-mono text-neutral-600 dark:text-neutral-400 mb-6 shadow-sm">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+        <div className="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:py-1 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-100/90 dark:bg-neutral-900/90 text-[11px] sm:text-xs font-mono text-neutral-600 dark:text-neutral-400 mb-6 shadow-sm max-w-full">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
           <span>v1.0.1 • TypeScript Native</span>
           <span className="text-neutral-300 dark:text-neutral-700">|</span>
           <span className="text-neutral-900 dark:text-neutral-200 font-medium">Zero Dependencies</span>
-          <span className="text-neutral-300 dark:text-neutral-700">|</span>
-          <span className="text-neutral-900 dark:text-neutral-200 font-medium">🤖 AI Agent Ready</span>
+          <span className="hidden sm:inline text-neutral-300 dark:text-neutral-700">|</span>
+          <span className="hidden sm:inline text-neutral-900 dark:text-neutral-200 font-medium">🤖 AI Agent Ready</span>
         </div>
 
         {/* Main Headline */}
@@ -47,17 +47,17 @@ export const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
           data-spot-summary="Spotlight directs your users' focus with fluid SVG cutout morphing, modern glassmorphic popovers, and rich media support."
           data-spot-media="/spotlight.png"
           data-spot-position="bottom"
-          className="text-4xl sm:text-6xl font-bold tracking-tight text-neutral-900 dark:text-white mb-5 max-w-3xl mx-auto leading-[1.12]">
+          className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-neutral-900 dark:text-white mb-4 sm:mb-5 max-w-3xl mx-auto leading-[1.15]">
           Cinematic site tours for modern web apps
         </h1>
 
         {/* Subtitle */}
-        <p className="max-w-2xl mx-auto text-base sm:text-lg text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed font-normal">
+        <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-neutral-600 dark:text-neutral-400 mb-8 sm:mb-10 leading-relaxed font-normal px-2 sm:px-0">
           Direct user attention with fluid SVG cutout morphing, collision-aware popovers, and declarative HTML markup. Pure TypeScript, zero external bloat.
         </p>
 
         {/* CTA Group */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12 sm:mb-16 w-full max-w-md sm:max-w-none mx-auto">
           <button
             onClick={onStartTour}
             data-spot-id="2"

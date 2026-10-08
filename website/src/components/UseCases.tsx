@@ -106,53 +106,55 @@ editorTour.start();`
         </div>
 
         {/* Vercel-Style Segmented Tabs */}
-        <div className="flex justify-center mb-10 overflow-x-auto pb-2">
-          <div className="inline-flex p-1 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900">
-            
-            <button
-              onClick={() => setActiveTab('onboarding')}
-              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium transition-all ${
-                activeTab === 'onboarding'
-                  ? 'bg-white dark:bg-black text-black dark:text-white shadow-sm border border-neutral-200/80 dark:border-neutral-700/80'
-                  : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'
-              }`}>
-              <Rocket className="w-3.5 h-3.5" />
-              <span>Onboarding</span>
-            </button>
+        <div className="w-full overflow-x-auto pb-3 mb-8 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none">
+          <div className="flex sm:justify-center">
+            <div className="inline-flex min-w-max p-1 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 gap-1">
+              
+              <button
+                onClick={() => setActiveTab('onboarding')}
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium whitespace-nowrap shrink-0 transition-all ${
+                  activeTab === 'onboarding'
+                    ? 'bg-white dark:bg-black text-black dark:text-white shadow-sm border border-neutral-200/80 dark:border-neutral-700/80'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'
+                }`}>
+                <Rocket className="w-3.5 h-3.5" />
+                <span>Onboarding</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab('announcements')}
-              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium transition-all ${
-                activeTab === 'announcements'
-                  ? 'bg-white dark:bg-black text-black dark:text-white shadow-sm border border-neutral-200/80 dark:border-neutral-700/80'
-                  : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'
-              }`}>
-              <BellRing className="w-3.5 h-3.5" />
-              <span>Releases</span>
-            </button>
+              <button
+                onClick={() => setActiveTab('announcements')}
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium whitespace-nowrap shrink-0 transition-all ${
+                  activeTab === 'announcements'
+                    ? 'bg-white dark:bg-black text-black dark:text-white shadow-sm border border-neutral-200/80 dark:border-neutral-700/80'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'
+                }`}>
+                <BellRing className="w-3.5 h-3.5" />
+                <span>Releases</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab('tutorials')}
-              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium transition-all ${
-                activeTab === 'tutorials'
-                  ? 'bg-white dark:bg-black text-black dark:text-white shadow-sm border border-neutral-200/80 dark:border-neutral-700/80'
-                  : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'
-              }`}>
-              <Layers className="w-3.5 h-3.5" />
-              <span>Tutorials</span>
-            </button>
+              <button
+                onClick={() => setActiveTab('tutorials')}
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium whitespace-nowrap shrink-0 transition-all ${
+                  activeTab === 'tutorials'
+                    ? 'bg-white dark:bg-black text-black dark:text-white shadow-sm border border-neutral-200/80 dark:border-neutral-700/80'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'
+                }`}>
+                <Layers className="w-3.5 h-3.5" />
+                <span>Tutorials</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab('groups')}
-              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium transition-all ${
-                activeTab === 'groups'
-                  ? 'bg-white dark:bg-black text-black dark:text-white shadow-sm border border-neutral-200/80 dark:border-neutral-700/80'
-                  : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'
-              }`}>
-              <Cpu className="w-3.5 h-3.5" />
-              <span>Multi-Tour Groups</span>
-            </button>
+              <button
+                onClick={() => setActiveTab('groups')}
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium whitespace-nowrap shrink-0 transition-all ${
+                  activeTab === 'groups'
+                    ? 'bg-white dark:bg-black text-black dark:text-white shadow-sm border border-neutral-200/80 dark:border-neutral-700/80'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'
+                }`}>
+                <Cpu className="w-3.5 h-3.5" />
+                <span>Multi-Tour Groups</span>
+              </button>
 
+            </div>
           </div>
         </div>
 

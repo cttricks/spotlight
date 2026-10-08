@@ -10,3 +10,4 @@ dist/*
 
 # Website Pages & Components
 /website/dist
+/scripts

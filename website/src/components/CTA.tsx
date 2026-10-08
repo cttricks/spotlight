@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, Copy, Check, Terminal, ExternalLink, Sparkles } from 'lucide-react';
+import { Github, Copy, Check, Terminal, ExternalLink, Sparkles, Download } from 'lucide-react';
 
 export const CTA: React.FC = () => {
   const [copiedTab, setCopiedTab] = useState<'npm' | 'cdn' | null>(null);
@@ -64,7 +64,7 @@ export const CTA: React.FC = () => {
         </h2>
 
         <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto mb-10 leading-relaxed">
-          Zero dependencies, framework-ready, and lightweight (~25KB gzipped). Choose your preferred setup below.
+          Zero dependencies, framework-ready, and lightweight (~25KB gzipped).
         </p>
 
         {/* 1. NPM: Exact-size centered rounded container */}
@@ -167,7 +167,7 @@ export const CTA: React.FC = () => {
         </div>
 
         {/* GitHub Star & Community CTA */}
-        <div className="inline-flex items-center justify-center gap-3">
+        <div className="inline-flex flex-wrap items-center justify-center gap-3">
           <a
             href="https://github.com/cttricks/spotlight"
             target="_blank"
@@ -175,6 +175,16 @@ export const CTA: React.FC = () => {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-neutral-900 text-white dark:bg-white dark:text-black hover:opacity-90 font-medium text-xs sm:text-sm transition-all shadow-sm">
             <Github className="w-4 h-4" />
             <span>Star on GitHub</span>
+            <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+          </a>
+
+          <a
+            href="https://esm.sh/@cttricks/spotlight@1.0.1/SKILL.md"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md border border-neutral-300 dark:border-neutral-800 bg-neutral-100/90 dark:bg-neutral-900/90 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-medium text-xs sm:text-sm transition-all shadow-sm">
+            <Download className="w-4 h-4 text-neutral-600 dark:text-neutral-400" />
+            <span>Download SKILL.md</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-70" />
           </a>
         </div>
