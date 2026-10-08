@@ -64,7 +64,7 @@ export const CTA: React.FC = () => {
         </h2>
 
         <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto mb-10 leading-relaxed">
-          Zero dependencies, framework-ready, and lightweight (~25KB gzipped). Choose your preferred setup below.
+          Zero dependencies, framework-ready, and lightweight (~25KB gzipped).
         </p>
 
         {/* 1. NPM: Exact-size centered rounded container */}
